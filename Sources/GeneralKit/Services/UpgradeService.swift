@@ -58,6 +58,16 @@ public final class UpgradeService {
     }
 
     private func buildGeneral() throws {
-        try shell(throw: "cd \(Constants.downloadedSourcePath); make")
+        func make() throws {
+            try shell(throw: "cd \(Constants.downloadedSourcePath); make")
+        }
+
+        do {
+            try make()
+        }
+        catch {
+            try FileHelper.default.removeFile(at: URL(fileURLWithPath: Constants.downloadedSourcePath) + ".build")
+            try make()
+        }
     }
 }
