@@ -12,11 +12,11 @@ public final class CompletionsService {
     }
 
     static func plugins() -> [String] {
-        ConfigFactory.default?.availablePlugins.map(\.name) ?? []
+        ConfigFactory.shared?.availablePlugins.map(\.name) ?? []
     }
 
     static func pluginsRepos() -> [String] {
-        ConfigFactory.default?.pluginsRepos ?? []
+        ConfigFactory.shared?.pluginsRepos ?? []
     }
 
     static func versions() -> [String] {

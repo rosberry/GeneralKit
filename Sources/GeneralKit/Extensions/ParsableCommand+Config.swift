@@ -6,7 +6,7 @@ import ArgumentParser
 
 public extension ParsableCommand {
     func config() throws -> GeneralConfig {
-        guard let config = ConfigFactory.default else {
+        guard let config = ConfigFactory.shared else {
             throw ConfigFactory.Error.invalidConfig
         }
         return config

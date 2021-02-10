@@ -44,7 +44,7 @@ public final class UpgradeService {
         case .latest:
             return Constants.defaultGithubBranch
         case .current:
-            return ConfigFactory.default?.version ?? Constants.defaultGithubBranch
+            return ConfigFactory.shared?.version ?? Constants.defaultGithubBranch
         }
     }
 

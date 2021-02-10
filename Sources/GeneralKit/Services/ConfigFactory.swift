@@ -30,18 +30,22 @@ public final class ConfigFactory {
         self.encoder = encoder
     }
 
-    public static var `default`: GeneralConfig?  = try? ConfigFactory().makeConfig(url: .init(fileURLWithPath: Constants.configPath))
+    public static var shared: GeneralConfig?  = try? ConfigFactory().makeConfig(url: .init(fileURLWithPath: Constants.configPath))
+
+    public static let defaultConfig: GeneralConfig = {
+        .init(version: Constants.version,
+              templatesRepo: nil,
+              availablePlugins: [],
+              installedPlugins: [],
+              pluginsRepos: [],
+              defaultCommand: "gen",
+              commands: ["gen": "General.Generate",
+                         "setup": "General.Setup"])
+    }()
 
     func makeConfig(url: URL) throws -> GeneralConfig {
         guard let string = try? String(contentsOf: url) else {
-            return .init(version: Constants.version,
-                         templatesRepo: nil,
-                         availablePlugins: [],
-                         installedPlugins: [],
-                         pluginsRepos: [],
-                         defaultCommand: "gen",
-                         commands: ["gen": "General.Generate",
-                                    "setup": "General.Setup"])
+            return ConfigFactory.defaultConfig
         }
         return try decoder.decode(from: string)
     }
@@ -52,12 +56,12 @@ public final class ConfigFactory {
     }
 
     public func update( _ handler: (GeneralConfig) -> GeneralConfig) throws {
-        guard var config = ConfigFactory.default else {
+        guard var config = ConfigFactory.shared else {
             throw Error.invalidConfig
         }
         do {
             config = handler(config)
-            ConfigFactory.default = config
+            ConfigFactory.shared = config
             let data = try makeData(config: config)
             try data?.write(to: .init(fileURLWithPath: Constants.configPath))
         }
