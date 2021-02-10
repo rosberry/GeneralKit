@@ -32,7 +32,7 @@ public final class ConfigFactory {
 
     public static var shared: GeneralConfig?  = try? ConfigFactory().makeConfig(url: .init(fileURLWithPath: Constants.configPath))
 
-    public static let defaultConfig: GeneralConfig = {
+    public static let `default`: GeneralConfig = {
         .init(version: Constants.version,
               templatesRepo: nil,
               availablePlugins: [],
@@ -45,7 +45,7 @@ public final class ConfigFactory {
 
     func makeConfig(url: URL) throws -> GeneralConfig {
         guard let string = try? String(contentsOf: url) else {
-            return ConfigFactory.defaultConfig
+            return ConfigFactory.default
         }
         return try decoder.decode(from: string)
     }
