@@ -35,6 +35,7 @@ public enum Constants {
     public static let packageDependencyTemplate = "// {% PackageDependency %}"
     public static let targetDependencyTemplate = "// {% TargetDependency %}"
     public static let importDependencyTemplate = "// {% PluginImport %}"
+    public static let pluginCommand = "// Plugin: - "
 }
 
 enum ColorChars {
