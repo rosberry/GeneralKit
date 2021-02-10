@@ -15,6 +15,10 @@ public final class CompletionsService {
         ConfigFactory.shared?.availablePlugins.map(\.name) ?? []
     }
 
+    static func installedPlugins() -> [String] {
+        ConfigFactory.shared?.installedPlugins.map(\.name) ?? []
+    }
+
     static func pluginsRepos() -> [String] {
         ConfigFactory.shared?.pluginsRepos ?? []
     }
@@ -34,6 +38,12 @@ public extension CompletionKind {
     static var plugins: CompletionKind {
         .custom { _ in
             CompletionsService.plugins()
+        }
+    }
+
+    static var installedPlugins: CompletionKind {
+        .custom { _ in
+            CompletionsService.installedPlugins()
         }
     }
 
