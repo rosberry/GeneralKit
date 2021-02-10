@@ -60,6 +60,6 @@ public final class UpgradeService {
     private func buildGeneral() throws {
         // Uncomment if will fail `make`
         // _ = try? FileHelper.default.removeFile(at: URL(fileURLWithPath: Constants.downloadedSourcePath) + ".build")
-        try shell(throw: "cd \(Constants.downloadedSourcePath); make")
+        try shell(loud: "cd \(Constants.downloadedSourcePath); make")
     }
 }
