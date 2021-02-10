@@ -40,7 +40,8 @@ public final class ConfigFactory {
                          installedPlugins: [],
                          pluginsRepos: [],
                          defaultCommand: "gen",
-                         commands: ["gen": "General.Generate"])
+                         commands: ["gen": "General.Generate",
+                                    "setup": "General.Setup"])
         }
         return try decoder.decode(from: string)
     }
