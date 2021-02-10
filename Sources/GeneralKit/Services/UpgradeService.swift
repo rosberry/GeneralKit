@@ -58,16 +58,8 @@ public final class UpgradeService {
     }
 
     private func buildGeneral() throws {
-        func make() throws {
-            try shell(throw: "cd \(Constants.downloadedSourcePath); make")
-        }
-
-        do {
-            try make()
-        }
-        catch {
-            try FileHelper.default.removeFile(at: URL(fileURLWithPath: Constants.downloadedSourcePath) + ".build")
-            try make()
-        }
+        // Currently make offten crashes if .build folder exists. Fix it later
+        try FileHelper.default.removeFile(at: URL(fileURLWithPath: Constants.downloadedSourcePath) + ".build")
+        try shell(throw: "cd \(Constants.downloadedSourcePath); make")
     }
 }
