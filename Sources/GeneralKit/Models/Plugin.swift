@@ -2,7 +2,7 @@
 //  Copyright © 2021 Rosberry. All rights reserved.
 //
 
-public struct Plugin: Codable, Equatable, CustomStringConvertible {
+public struct Plugin: Codable, Hashable, CustomStringConvertible {
     public let name: String
     public let commands: [PluginCommand]
     public let repo: String
@@ -11,5 +11,10 @@ public struct Plugin: Codable, Equatable, CustomStringConvertible {
         self.name = name
         self.commands = commands
         self.repo = repo
+    }
+
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+        hasher.combine(repo)
     }
 }
