@@ -16,6 +16,7 @@ public final class SetupService {
     public func setup(githubPath: String, shouldLoadGlobally: Bool, customizationHandler: (([FileInfo]) throws -> Void)? = nil) throws {
         let destination = getTemplatesDestination(shouldLoadGlobally: shouldLoadGlobally)
         let files = try downloadFiles(from: githubPath, destination: destination)
+        try moveGeneralSpec(from: files)
         try customizationHandler?(files)
         displayResult(files)
     }
@@ -37,6 +38,16 @@ public final class SetupService {
         }, matchHandler: { file in
             isGeneralSpec(file) || isTemplatesFolder(file)
         })
+    }
+
+    private func moveGeneralSpec(from files: [FileInfo]) throws {
+        let specFile = files.first { file in
+            file.url.lastPathComponent == Constants.generalSpecName
+        }
+        guard let file = specFile else {
+            return
+        }
+        try fileHelper.moveFile(at: file.url, to: URL(fileURLWithPath: Constants.relativeCurrentPath))
     }
 
     private func displayResult(_ templates: [FileInfo]) {
