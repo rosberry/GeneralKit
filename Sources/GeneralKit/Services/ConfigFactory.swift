@@ -37,7 +37,7 @@ public final class ConfigFactory {
               templatesRepo: nil,
               availablePlugins: [],
               installedPlugins: [],
-              pluginsRepos: [],
+              pluginsRepos: ["rosberry/GeneralIOs"],
               defaultCommand: "gen",
               commands: ["gen": "General.Generate",
                          "setup": "General.Setup"])
