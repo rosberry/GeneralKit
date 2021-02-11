@@ -60,9 +60,7 @@ public final class GithubService {
         let gitRepoPath = try getGitRepoPath(repo: repo)
         let archiveURL = try downloadArchive(at: gitRepoPath)
         let folderURL = try fileHelper.unzipArchive(at: archiveURL)
-        let firstDirectory = try? fetchFiles(in: folderURL, matchHandler: matchHandler).first { file in
-            file.isDirectory
-        }
+        let firstDirectory = try fileHelper.contentsOfDirectory(at: folderURL).first(where: \.isDirectory)
         guard let directory = firstDirectory else {
             throw Error.write(folderURL)
         }
@@ -70,7 +68,7 @@ public final class GithubService {
         if try fileHelper.fileInfo(with: destination).isExists {
             try fileHelper.removeFile(at: destination)
         }
-        let files = try fileHelper.contentsOfDirectory(at: directory.url)
+        let files = try fetchFiles(in: directory.url, matchHandler: matchHandler)
         var movedFiles: [FileInfo] = []
         var errors: [Swift.Error] = []
         do {
