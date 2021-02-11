@@ -61,12 +61,6 @@ public final class UpgradeService {
     }
 
     private func buildGeneral() throws {
-        try shell(loud: "cd \(Constants.downloadedSourcePath); make")
-        guard let whichGeneral = try? shell(silent: "which general"),
-            whichGeneral.status == 0,
-            let copy = try? shell(silent: "cp \(Constants.downloadedSourcePath)/general \(whichGeneral.stdOut)"),
-            copy.status == 0 else {
-                throw Error.copyBinary
-        }
+        try shell(loud: "cd \(Constants.downloadedSourcePath); make install")
     }
 }
