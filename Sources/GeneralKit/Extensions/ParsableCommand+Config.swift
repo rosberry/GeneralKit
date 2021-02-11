@@ -12,7 +12,7 @@ public extension ParsableCommand {
         return config
     }
 
-    func updateConfig(handler: (GeneralConfig) -> GeneralConfig) throws {
+    func updateConfig(handler: (GeneralConfig) throws -> GeneralConfig) throws {
         try ConfigFactory.update(handler)
     }
 }

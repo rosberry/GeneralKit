@@ -53,12 +53,12 @@ public final class ConfigFactory {
         return string.data(using: .utf8)
     }
 
-    public func update( _ handler: (GeneralConfig) -> GeneralConfig) throws {
+    public func update( _ handler: (GeneralConfig) throws -> GeneralConfig) throws {
         guard var config = ConfigFactory.shared else {
             throw Error.invalidConfig
         }
+        config = try handler(config)
         do {
-            config = handler(config)
             ConfigFactory.shared = config
             let data = try makeData(config: config)
             try data?.write(to: .init(fileURLWithPath: Constants.configPath))
@@ -68,7 +68,7 @@ public final class ConfigFactory {
         }
     }
 
-    public static func update( _ handler: (GeneralConfig) -> GeneralConfig) throws {
+    public static func update( _ handler: (GeneralConfig) throws -> GeneralConfig) throws {
         try ConfigFactory().update(handler)
     }
 }
