@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0147997E25D51BB500287F51 /* PluginCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0147997D25D51BB500287F51 /* PluginCommand.swift */; };
 		OBJ_185 /* BashCompletionsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_85 /* BashCompletionsGenerator.swift */; };
 		OBJ_186 /* CompletionsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_86 /* CompletionsGenerator.swift */; };
 		OBJ_187 /* FishCompletionsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_87 /* FishCompletionsGenerator.swift */; };
@@ -233,6 +234,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0147997D25D51BB500287F51 /* PluginCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginCommand.swift; sourceTree = "<group>"; };
 		"GeneralKit::GeneralKit::Product" /* GeneralKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GeneralKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		OBJ_100 /* EnumerableFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumerableFlag.swift; sourceTree = "<group>"; };
@@ -591,6 +593,7 @@
 				OBJ_21 /* GeneralSpec.swift */,
 				OBJ_22 /* Output.swift */,
 				OBJ_23 /* Plugin.swift */,
+				0147997D25D51BB500287F51 /* PluginCommand.swift */,
 				OBJ_24 /* TemplateSpec.swift */,
 				OBJ_25 /* Variable.swift */,
 				OBJ_26 /* XcodeprojSpec.swift */,
@@ -1229,6 +1232,7 @@
 				OBJ_261 /* InsertStringService.swift in Sources */,
 				OBJ_262 /* Renderer.swift in Sources */,
 				OBJ_263 /* SetupService.swift in Sources */,
+				0147997E25D51BB500287F51 /* PluginCommand.swift in Sources */,
 				OBJ_264 /* Shell.swift in Sources */,
 				OBJ_265 /* SpecFactory.swift in Sources */,
 				OBJ_266 /* UpgradeService.swift in Sources */,
