@@ -34,8 +34,6 @@ public final class ConfigFactory {
 
     public static let `default`: GeneralConfig = {
         .init(version: Constants.version,
-              templatesRepo: nil,
-              availablePlugins: [],
               installedPlugins: [],
               pluginsRepos: ["rosberry/GeneralIOs"],
               defaultCommand: "gen",

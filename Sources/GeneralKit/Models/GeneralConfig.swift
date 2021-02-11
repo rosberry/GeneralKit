@@ -4,8 +4,6 @@
 
 public struct GeneralConfig: Codable {
     public var version: String
-    public var templatesRepo: String?
-    public var availablePlugins: [Plugin]
     public var installedPlugins: [Plugin]
     public var pluginsRepos: [String]
     public var defaultCommand: String?
