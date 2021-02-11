@@ -11,10 +11,6 @@ public final class CompletionsService {
         (try? FileManager.default.contentsOfDirectory(atPath: "./\(Constants.templatesFolderName)")) ?? []
     }
 
-    static func plugins() -> [String] {
-        ConfigFactory.shared?.availablePlugins.map(\.name) ?? []
-    }
-
     static func installedPlugins() -> [String] {
         ConfigFactory.shared?.installedPlugins.map(\.name) ?? []
     }
@@ -32,12 +28,6 @@ public extension CompletionKind {
     static var templates: CompletionKind {
         .custom { _ in
             CompletionsService.templates()
-        }
-    }
-
-    static var plugins: CompletionKind {
-        .custom { _ in
-            CompletionsService.plugins()
         }
     }
 
