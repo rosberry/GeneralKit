@@ -55,7 +55,7 @@
 		OBJ_241 /* ColorString.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* ColorString.swift */; };
 		OBJ_242 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Constants.swift */; };
 		OBJ_243 /* CustomStringConvertible+Mirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* CustomStringConvertible+Mirror.swift */; };
-		OBJ_245 /* ParsableCommand+Ask.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* ParsableCommand+Ask.swift */; };
+		OBJ_245 /* Ask.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* Ask.swift */; };
 		OBJ_246 /* ParsableCommand+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* ParsableCommand+Config.swift */; };
 		OBJ_247 /* URL+Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* URL+Paths.swift */; };
 		OBJ_248 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* File.swift */; };
@@ -275,7 +275,7 @@
 		OBJ_137 /* StencilSwiftTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StencilSwiftTemplate.swift; sourceTree = "<group>"; };
 		OBJ_138 /* SwiftIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftIdentifier.swift; sourceTree = "<group>"; };
 		OBJ_139 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = /Users/nick/Documents/GitHub/GeneralKit/.build/checkouts/StencilSwiftKit/Package.swift; sourceTree = "<group>"; };
-		OBJ_14 /* ParsableCommand+Ask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ParsableCommand+Ask.swift"; sourceTree = "<group>"; };
+		OBJ_14 /* Ask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ask.swift; sourceTree = "<group>"; };
 		OBJ_141 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = /Users/nick/Documents/GitHub/GeneralKit/.build/checkouts/Stencil/Package.swift; sourceTree = "<group>"; };
 		OBJ_142 /* Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
 		OBJ_143 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
@@ -475,7 +475,6 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_12 /* CustomStringConvertible+Mirror.swift */,
-				OBJ_14 /* ParsableCommand+Ask.swift */,
 				OBJ_15 /* ParsableCommand+Config.swift */,
 				OBJ_16 /* URL+Paths.swift */,
 			);
@@ -765,6 +764,7 @@
 		OBJ_8 /* GeneralKit */ = {
 			isa = PBXGroup;
 			children = (
+				OBJ_14 /* Ask.swift */,
 				OBJ_9 /* ColorString.swift */,
 				OBJ_10 /* Constants.swift */,
 				014799A325D5516B00287F51 /* TmpFolder.swift */,
@@ -1217,7 +1217,7 @@
 				014799A425D5516B00287F51 /* TmpFolder.swift in Sources */,
 				OBJ_242 /* Constants.swift in Sources */,
 				OBJ_243 /* CustomStringConvertible+Mirror.swift in Sources */,
-				OBJ_245 /* ParsableCommand+Ask.swift in Sources */,
+				OBJ_245 /* Ask.swift in Sources */,
 				OBJ_246 /* ParsableCommand+Config.swift in Sources */,
 				OBJ_247 /* URL+Paths.swift in Sources */,
 				OBJ_248 /* File.swift in Sources */,
