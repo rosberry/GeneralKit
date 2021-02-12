@@ -9,6 +9,7 @@ import PathKit
 public final class ConfigFactory {
 
     enum Error: Swift.Error, CustomStringConvertible {
+        case defaultConfig
         case invalidConfig
         case write
 
@@ -16,6 +17,8 @@ public final class ConfigFactory {
             switch self {
             case .invalidConfig:
                 return "Could not load the config"
+            case .defaultConfig:
+                return "No defalt config specified"
             case .write:
                 return "Could not write the config file"
             }
@@ -32,18 +35,14 @@ public final class ConfigFactory {
 
     public static var shared: GeneralConfig?  = try? ConfigFactory().makeConfig(url: .init(fileURLWithPath: Constants.configPath))
 
-    public static let `default`: GeneralConfig = {
-        .init(version: Constants.version,
-              installedPlugins: [],
-              pluginsRepos: ["rosberry/GeneralIOs"],
-              defaultCommand: "gen",
-              commands: ["gen": "General.Generate",
-                         "setup": "General.Setup"])
-    }()
+    public static var `default`: GeneralConfig?
 
     func makeConfig(url: URL) throws -> GeneralConfig {
         guard let string = try? String(contentsOf: url) else {
-            return ConfigFactory.default
+            guard let `default` = ConfigFactory.default else {
+                throw Error.defaultConfig
+            }
+            return `default`
         }
         return try decoder.decode(from: string)
     }
