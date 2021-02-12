@@ -98,6 +98,10 @@ public final class FileHelper {
 
     public func moveFile(at url: URL, to destination: URL) throws {
         do {
+            let parentFolder = try fileInfo(with: destination.deletingLastPathComponent())
+            if parentFolder.isExists == false {
+                try createDirectory(at: parentFolder.url)
+            }
             try fileManager.moveItem(at: url, to: destination)
         }
         catch {

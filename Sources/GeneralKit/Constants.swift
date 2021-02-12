@@ -15,7 +15,7 @@ public enum Constants {
     public static let templatesFolderName = ".templates"
     public static let commonTemplatesFolderName = "common"
     public static let filesFolderName = "Code"
-    public static let templateFilename = "template.stencil"
+    public static let templateFileName = "template.stencil"
     public static let template = "{{ name }}"
     public static let projectName = "Project.xcodeproj"
     public static let generalSpecName = ".general.yml"
