@@ -77,19 +77,12 @@ public final class SetupService {
     private func displayResult(_ files: [FileInfo]) {
         print()
         if files.isEmpty {
-            print(yellow("No templates modified 🤷‍♂️"))
+            print(yellow("No files modified 🤷‍♂️"))
         }
         else {
-            if files.first(where: isGeneralSpec) != nil {
-                print("✨ General Spec updated")
-            }
-            if let templatesFolder = files.first(where: isTemplatesFolder),
-               let files = try? fileHelper.contentsOfDirectory(at: templatesFolder.url),
-               !files.isEmpty {
-                print("✨ Updated templates:")
-                files.forEach { file in
-                    print(green(file.url.lastPathComponent))
-                }
+            print("✨ Updated files:")
+            files.forEach { file in
+                print(green(file.url.lastPathComponent))
             }
         }
     }
