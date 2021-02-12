@@ -23,6 +23,10 @@ public final class SetupService {
     // MARK: - Private
 
     private func downloadFiles(from path: String, destination: URL) throws -> [FileInfo] {
+        var path = path
+        if let linkedPath = ConfigFactory.shared?.templatesRepos[path] {
+            path = linkedPath
+        }
         print("Loading setup files from \(path)...")
         var downloadedFiles = [FileInfo]()
         try githubService.downloadFiles(at: path) { files in
