@@ -21,6 +21,15 @@ public final class Renderer {
         }
     }
 
+
+    private class VariablesTemplate: Template {
+        var variables: [String]
+        required init(templateString: String, environment: Environment? = nil, name: String? = nil) {
+            self.variables = parseAllRegexMatches(pattern: "\\{\\{\\s*([a-zA-Z][a-zA-Z0-9]*)\\s*\\}\\}", rangeIndex: 1, string: templateString)
+            super.init(templateString: templateString, environment: environment, name: name)
+        }
+    }
+
     let name: String
     let template: String
     let path: String
@@ -72,6 +81,7 @@ public final class Renderer {
     }
 
     public func render(_ file: File, templateSpec: TemplateSpec, environment: Environment) throws -> URL? {
+        askRequiredVariables(file, environment: environment)
         let rendered = try environment.renderTemplate(name: file.template, context: context).trimmingCharacters(in: .whitespacesAndNewlines)
         let module = name
         let fileName = file.fileName(in: module)
@@ -153,5 +163,21 @@ public final class Renderer {
             ext.registerStencilSwiftExtensions()
         }
         return environment
+    }
+
+    private func askRequiredVariables(_ file: File, environment: Environment) {
+        let templateEnvironment = Environment(loader: environment.loader,
+                                              extensions: environment.extensions,
+                                              templateClass: VariablesTemplate.self)
+        guard let template = try? templateEnvironment.loadTemplate(name: file.template) as? VariablesTemplate,
+              !template.variables.isEmpty else {
+            return
+        }
+        print(yellow("Please enter following template variables"))
+        template.variables.forEach { variable in
+            if !context.keys.contains(variable) {
+                context[variable] = ask("\(variable)")
+            }
+        }
     }
 }

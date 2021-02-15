@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0147997E25D51BB500287F51 /* PluginCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0147997D25D51BB500287F51 /* PluginCommand.swift */; };
 		014799A425D5516B00287F51 /* TmpFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014799A325D5516B00287F51 /* TmpFolder.swift */; };
+		01DA34B325DA461700EE469C /* RegEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DA34B225DA461000EE469C /* RegEx.swift */; };
 		OBJ_185 /* BashCompletionsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_85 /* BashCompletionsGenerator.swift */; };
 		OBJ_186 /* CompletionsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_86 /* CompletionsGenerator.swift */; };
 		OBJ_187 /* FishCompletionsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_87 /* FishCompletionsGenerator.swift */; };
@@ -237,6 +238,7 @@
 /* Begin PBXFileReference section */
 		0147997D25D51BB500287F51 /* PluginCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginCommand.swift; sourceTree = "<group>"; };
 		014799A325D5516B00287F51 /* TmpFolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmpFolder.swift; sourceTree = "<group>"; };
+		01DA34B225DA461000EE469C /* RegEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegEx.swift; sourceTree = "<group>"; };
 		"GeneralKit::GeneralKit::Product" /* GeneralKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GeneralKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		OBJ_100 /* EnumerableFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumerableFlag.swift; sourceTree = "<group>"; };
@@ -764,6 +766,7 @@
 		OBJ_8 /* GeneralKit */ = {
 			isa = PBXGroup;
 			children = (
+				01DA34B225DA461000EE469C /* RegEx.swift */,
 				OBJ_14 /* Ask.swift */,
 				OBJ_9 /* ColorString.swift */,
 				OBJ_10 /* Constants.swift */,
@@ -1226,6 +1229,7 @@
 				OBJ_251 /* GeneralSpec.swift in Sources */,
 				OBJ_252 /* Output.swift in Sources */,
 				OBJ_253 /* Plugin.swift in Sources */,
+				01DA34B325DA461700EE469C /* RegEx.swift in Sources */,
 				OBJ_254 /* TemplateSpec.swift in Sources */,
 				OBJ_255 /* Variable.swift in Sources */,
 				OBJ_256 /* XcodeprojSpec.swift in Sources */,

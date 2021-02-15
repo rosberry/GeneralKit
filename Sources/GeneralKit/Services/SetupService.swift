@@ -61,8 +61,7 @@ public final class SetupService {
               let templates = try? fileHelper.contentsOfDirectory(at: folder.url) else {
             return downloadedFiles
         }
-        let destinationURL = URL(fileURLWithPath: Constants.relativeCurrentPath + Constants.templatesFolderName)
-        let destination = try fileHelper.fileInfo(with: destinationURL)
+        let destination = try fileHelper.fileInfo(with: .init(fileURLWithPath: Constants.relativeCurrentPath + Constants.templatesFolderName))
         try templates.forEach { template in
             let templateURL = template.url
             let templateDestination = destination.url + template.url.lastPathComponent

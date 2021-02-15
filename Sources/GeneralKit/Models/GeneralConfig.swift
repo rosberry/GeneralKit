@@ -9,11 +9,7 @@ public struct GeneralConfig: Codable, CustomStringConvertible {
     public var defaultCommand: String?
     public var commands: [String: String]
 
-    public init(version: String,
-                templatesRepos: [String: String],
-                installedPlugins: [Plugin],
-                defaultCommand: String?,
-                commands: [String: String]) {
+    public init(version: String, templatesRepos: [String: String], installedPlugins: [Plugin], defaultCommand: String?, commands: [String: String]) {
         self.version = version
         self.templatesRepos = templatesRepos
         self.installedPlugins = installedPlugins
